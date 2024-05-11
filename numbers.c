@@ -21,3 +21,7 @@ void getNumbers(int * a, int * b){
   number[i]=0;
   *b=atoi(number);  
 }
+
+int _sum(int a, int b) {
+    return a + b;
+}
