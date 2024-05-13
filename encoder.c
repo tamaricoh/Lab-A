@@ -69,13 +69,13 @@ int main(int argc, char *argv[]) {
                     }
                     if (digit){
                         if (ch > '9')
-                            ch -= 26;
+                            ch -= 10;
                         else if (ch < '0')
-                            ch += 26;
+                            ch += 10;
                     }
                 }
                 // Move :
-                index_InEncryptionKey = (index_InEncryptionKey + 1) % strlen(encryptionKey);
+                index_InEncryptionKey = (index_InEncryptionKey + 1) % strlen(encryptionKey); // >=0 because (index_InEncryptionKey + 1)>=0
             }
 
             // fputc : writes a single character to the specified output stream.
