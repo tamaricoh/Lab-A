@@ -38,7 +38,6 @@ int main(int argc, char *argv[]) {
     int ch;
     int index_InEncryptionKey = 0;
     bool lowerCase = false;
-    bool upperCase = false;
     bool digit = false;
 
     // fgetc : reads a single character from the specified input stream.
@@ -46,12 +45,11 @@ int main(int argc, char *argv[]) {
     // or EOF if an error occurs or if the end of the file is reached.
     while ((ch = fgetc(infile)) != EOF) {
         lowerCase = (ch >= 'a' && ch <= 'z')? true: false;
-        upperCase = (ch >= 'A' && ch <= 'Z')? true: false;
         digit = (ch >= '0' && ch <= '9')? true: false;
         if (strcmp(DbugMode, "on") == 0) {
 
             if (AddOrSub != 0) {
-                if (ch != '\n' && (lowerCase | upperCase | digit)) {
+                if (ch != '\n' && (lowerCase | digit)) {
                     // Convert char to int :
                     int digit_InEncryptionKey = encryptionKey[index_InEncryptionKey] - '0'; 
                     
@@ -67,12 +65,6 @@ int main(int argc, char *argv[]) {
                         if (ch > 'z')
                             ch -= 26;
                         else if (ch < 'a')
-                            ch += 26;
-                    }
-                    if (upperCase){
-                        if (ch > 'Z')
-                            ch -= 26;
-                        else if (ch < 'A')
                             ch += 26;
                     }
                     if (digit){
