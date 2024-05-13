@@ -7,7 +7,7 @@ CFlags = -Wall -Wextra -g
 # The .c files (sources)
 CFiles = main.c numbers.c
 my_echo_CFile = my_echo.c
-part1_CFile = Dbug.c
+part1_CFile = encoder.c
 
 # Sets the names of the .o files
 OFiles = $(CFiles:.c=.o)
@@ -17,7 +17,7 @@ part1_OFile = $(part1_CFile:.c=.o)
 # Set the executable names
 Ex = add
 my_echo_Ex = my_echo
-part1_Ex = Dbug
+part1_Ex = encoder
 
 # Declare as phony target, so the computer will differ them from files with the same name
 .PHONY: all clean
