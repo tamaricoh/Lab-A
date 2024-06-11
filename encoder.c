@@ -65,7 +65,9 @@ int main(int argc, char *argv[]) {
             if (ch != '\n' && (lowerCase | digit)) {
                 // Convert char to int :
                 int digit_InEncryptionKey = encryptionKey[index_InEncryptionKey] - '0'; 
-                fprintf(stderr, "Debug: Input character '%c', Encryption key '%d'\n", ch, digit_InEncryptionKey); // Optional part
+                if (strcmp(DbugMode, "on") == 0) {
+                    fprintf(stderr, "Debug: Input character '%c', Encryption key '%d'\n", ch, digit_InEncryptionKey); // Optional part
+                }
                 if (AddOrSub == 1) {
                     // Encode
                     ch += digit_InEncryptionKey;
